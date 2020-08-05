@@ -1,2 +1,2 @@
 # TripleX
- TripleX A SImple C++ Console Game
+ TripleX A Simple C++ Console Game
