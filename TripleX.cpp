@@ -1,11 +1,16 @@
 #include <iostream> //Preprocessor Directive
 
-int main() //Main Function
+void PrintIntroduction()
 {
     //Expression Statements
     std::cout << "You are a secret agent breaking into a secure server room";
     std::cout << std::endl;
-    std::cout << "Enter the correct code to continue..." << std::endl;
+    std::cout << "Enter the correct code to continue...\n\n";
+}
+
+void PlayGame()
+{
+    PrintIntroduction();
 
     //Declaration Statements
     const int CodeA = 4;
@@ -15,25 +20,27 @@ int main() //Main Function
     const int CodeSum = CodeA + CodeB + CodeC;
     const int CodeProduct = CodeA * CodeB * CodeC;
 
-    //Expression Statements
-    std::cout << std::endl;
-    std::cout << "+ There are 3 numbers in the code" << std::endl;
-    std::cout << "+ The codes add-up to: " << CodeSum << std::endl;
-    std::cout << "+ The code multiply to give: " << CodeProduct << std::endl;
+    //Expression Statements;
+    std::cout << "+ There are 3 numbers in the code\n";
+    std::cout << "+ The codes add-up to: " << CodeSum;
+    std::cout << "\n+ The code multiply to give: " << CodeProduct << std::endl;
 
     int GuessA, GuessB, GuessC;
-    std::cin >> GuessA;
-    std::cin >> GuessB;
-    std::cin >> GuessC;
+    std::cin >> GuessA >> GuessB >> GuessC;
 
     int GuessSum = GuessA + GuessB + GuessC;
     int GuessProduct = GuessA * GuessB * GuessC;
 
+    // Check if the player guess is correct
     if (GuessSum == CodeSum && GuessProduct == CodeProduct){
         std::cout << "You Win!";
     }else{
         std::cout << "You Lose!";
     }
+}
 
+int main() //Main Function
+{
+    PlayGame();
     return 0; // Return Statement
 }
