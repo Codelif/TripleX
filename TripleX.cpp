@@ -1,4 +1,5 @@
 #include <iostream> //Preprocessor Directive
+#include <ctime>
 
 void PrintIntroduction(int Difficulty)
 {
@@ -13,9 +14,9 @@ bool PlayGame(int Difficulty)
     PrintIntroduction(Difficulty);
 
     //Declaration Statements
-    const int CodeA = rand();
-    const int CodeB = rand();
-    const int CodeC = rand();
+    const int CodeA = rand() % Difficulty + Difficulty;
+    const int CodeB = rand() % Difficulty + Difficulty;
+    const int CodeC = rand() % Difficulty + Difficulty;
 
     const int CodeSum = CodeA + CodeB + CodeC;
     const int CodeProduct = CodeA * CodeB * CodeC;
@@ -23,7 +24,7 @@ bool PlayGame(int Difficulty)
     //Expression Statements;
     std::cout << "+ There are 3 numbers in the code\n";
     std::cout << "+ The codes add-up to: " << CodeSum;
-    std::cout << "\n+ The code multiply to give: " << CodeProduct << std::endl;
+    std::cout << "\n+ The codes multiply to give: " << CodeProduct << std::endl;
 
     int GuessA, GuessB, GuessC;
     std::cin >> GuessA >> GuessB >> GuessC;
@@ -41,8 +42,10 @@ bool PlayGame(int Difficulty)
 
 int main() //Main Function
 {
+    srand(time(NULL));
+
     int bLevelDifficulty = 1;
-    const int MaxDifficulty = 5;
+    const int MaxDifficulty = 7;
 
     while (bLevelDifficulty <= MaxDifficulty)
     {
