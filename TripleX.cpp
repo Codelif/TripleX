@@ -1,16 +1,16 @@
 #include <iostream> //Preprocessor Directive
 
-void PrintIntroduction()
+void PrintIntroduction(int Difficulty)
 {
     //Expression Statements
-    std::cout << "You are a secret agent breaking into a secure server room";
+    std::cout << "You are a secret agent breaking into a level " << Difficulty << " secure server room";
     std::cout << std::endl;
     std::cout << "Enter the correct code to continue...\n\n";
 }
 
-bool PlayGame()
+bool PlayGame(int Difficulty)
 {
-    PrintIntroduction();
+    PrintIntroduction(Difficulty);
 
     //Declaration Statements
     const int CodeA = 4;
@@ -43,11 +43,18 @@ bool PlayGame()
 
 int main() //Main Function
 {
+    int bLevelDifficulty = 1;
     while(true)
     {
-        bool bLevelComplete = PlayGame();
+        bool bLevelComplete = PlayGame(bLevelDifficulty);
         std::cin.clear(); //Clears any errors
         std::cin.ignore(); // Discards any buffer
+
+        if (bLevelComplete)
+        {
+            ++bLevelDifficulty;
+        }
+        
     }
     return 0; // Return Statement
 }
